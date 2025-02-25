@@ -1,0 +1,26 @@
+/* Apply a reset to all elements */
+* {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Styles for the body element */
+body {
+    width: 100%; /* Set body width to fill the viewport */
+    display: grid; /* Use grid layout for the body */
+    place-items: center; /* Center items both vertically and horizontally */
+}
+
+/* Styles for the main heading */
+h1 {
+    width: 100%; /* Set width to fill the available space */
+    text-align: center; /* Center text horizontally */
+    background-color: rgb(255, 179, 129); /* Light orange background color */
+    margin: 20px 0; /* Add vertical margin for spacing above and below the heading */
+}
+
+/* Styles for images */
+img {
+    margin: 20px 0; /* Add vertical margin for spacing above and below images */
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Character set for the document -->
+    <meta charset="UTF-8">
+    <!-- Ensures compatibility with older versions of Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Viewport settings for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Title of the webpage -->
+    <title>Fighting game</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Main menu section -->
+        <div id="menu" class="menu">
+
+            <!-- Game title with animation -->
+            <div class="title; animate-charcter">
+                Fighting Game!
+            </div>
+            <div class="options">
+                <!-- Option to play as 1 player -->
+                <div id="1player" class="menuOption">
+                    Play
+                </div>
+            </div>
+        </div>
+
+        <!-- Heads-Up Display (HUD) section -->
+        <div id="hud" class="hud">
+
+            <!-- Player's health bar layout -->
+            <div class="healthLayout">
+                <div class="remainingHealthbar"></div>
+                <!-- Total health bar for the player -->
+                <div id="playerHealth" class="totalHealthBar"></div>
+            </div>
+            <!-- Timer display -->
+            <div id="timer" class="timer"> -- </div>
+
+            <!-- Enemy's health bar layout -->
+            <div class="healthLayout">
+                <div class="remainingHealthbar"></div> 
+                <!-- Total health bar for the enemy -->
+                <div id="enemyHealth" class="totalHealthBar"></div>
+            </div>
+        </div>
+
+        <!-- Result display section -->
+        <div id="result" class="result"> result </div>
+
+        <!-- Game canvas area -->
+        <div class="game">
+            <canvas id="gameWindow"> </canvas>
+        </div>
+    </div>
+
+    <!-- GSAP (GreenSock Animation Platform) library for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
+        integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Link to the main JavaScript file for the game -->
+    <script type="module" src="../js/index.js"> </script>
+</body>
+
+</html>

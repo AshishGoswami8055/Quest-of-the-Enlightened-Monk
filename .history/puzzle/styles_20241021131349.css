@@ -1,0 +1,47 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Light background for the new page */
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    height: 100vh; /* Full height */
+}
+
+/* Container for the entire puzzle game */
+.puzzle-container {
+    width: 320px; /* Set a fixed width for the puzzle container */
+    margin: 20px auto; /* Center the container */
+    display: grid; /* Use grid layout for puzzle pieces */
+    grid-template-columns: repeat(3, 100px); /* Three columns for puzzle pieces */
+    grid-gap: 5px; /* Space between puzzle pieces */
+}
+
+/* Canvas pieces styling */
+canvas {
+    border: 2px solid #333; /* Border for each puzzle piece */
+    cursor: move; /* Change cursor on hover */
+}
+
+/* Full image styling */
+.full-image {
+    margin: 20px auto; /* Center the full image */
+    border: 2px solid #ddd; /* Border around the full image */
+    display: inline-block; /* Display as an inline block */
+}
+
+/* Success message styling */
+#message {
+    margin-top: 20px; /* Space above the message */
+    font-size: 18px; /* Font size for the message */
+    font-weight: bold; /* Make text bold */
+    color: green; /* Green color for success message */
+}
+
+/* Close button styling */
+.close-button {
+    display: none; /* Remove the close button, not needed for a new page */
+}

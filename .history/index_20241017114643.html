@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monk Level :- 1</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/hermit.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Control Buttons  -->
+    <div class="control-panel">
+        <div class="control-btns">
+            <a href="#" onclick="play_game()"><img src="images/play.png" alt=""></a>
+            <a href="#" onclick="pause_game()"><img src="images/pause.png" alt=""></a>
+            <a href="game_rules.html" target="_blank"><img src="images/rules.png" alt=""></a>
+        </div>
+        <div class="level-text">Level 1</div>
+        <div class="Health">Health : 100</div>
+        <div class="score">Score : 0</div>
+        <div id="stopwatch">00 : 00 : 00</div>
+        <div class="goldenEnergies"><img src="images/golden_energies.png" width="30px" alt="">:<span></span></div>
+    </div>
+
+    <!-- PLayer Info Form -->
+    <div class="game_form">
+        <form>
+            <img src="images/character form.png" class="form_img" width="990px" alt="">
+            <input type="text" id="character_name" placeholder="Enter Character Name">
+            <select id="character_gender" onchange="updateAbilities()">
+                <option value="Zen Monk">Zen Monk</option>
+                <option value="Ranger Monk">Ranger Monk</option>
+                <option value="Warrior Monk">Warrior Monk</option>
+                <option value="Mystic Monk">Mystic Monk</option>
+            </select>
+            <h3 id="abilities_text">⚔️ Enhanced meditation skills, quicker energy recovery, powerful healing abilities.</h3>
+            <a class="pause-close" onclick="form_submit()"><img src="images/playbtn.png" alt=""></a>
+        </form>
+    </div>
+    
+    <!-- pause -->
+    <div class="pause_game">
+        <form>
+            <img src="images/pause form.png" class="form_img" width="970px" alt="">
+            <h2>Level :- 1</h2>
+            <h2 class="pause_health"></h2>
+            <a href="#" onclick="toggle_music()"><img src="images/musicbtn.png" alt=""></a>
+            <a class="pause-close" onclick="play_game()"><img src="images/playbtn.png" alt=""></a>
+        </form>
+    </div>
+
+    <!-- Meditation Popup Container (similar to hermit popup) -->
+    <!-- Meditation Popup Container -->
+<div class="meditation-container" style="visibility: hidden;">
+    <div class="popup-content">
+      <h2>Meditation Time!</h2>
+      <p>You have entered a state of meditation. Enjoy your calm moment.</p>
+      <button class="continue-btn" onclick="closeMeditation()">Continue</button>
+    </div>
+  </div>
+      
+
+    <!-- Game over  -->
+    <h2 class="game_over">Game Over!!! Auto Restarting</h2>
+    
+    <!-- Notification -->
+    <h3 class="notification"></h3>
+
+    
+     <!-- snow man  -->
+     <div class="snowman_answers">
+        <h2 class="game_over">Game Over!!! Auto Restarting</h2>
+        <h3 class="snowman1_ans">The Truth of Suffering</h3>
+        <h3 class="snowman2_ans">The Truth of the Cause of Suffering</h3>
+        <h3 class="snowman3_ans">The Truth of the End of Suffering</h3>
+        <h3 class="snowman4_ans">The Truth of the Path that Leads to the End of Suffering</h3>
+    </div>
+    <div class="snowman_final">
+        <div class="quiz-container">
+            <header>
+              <span id="question-number">1/10</span>
+              <span id="timer">30</span>
+              <span id="score">Score: 0</span>
+            </header>
+            <div class="progress-container">
+              <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        
+            <main class="main_section">
+              <h2 id="question-text">How does Kendrick react to moving objects?</h2>
+              <div class="options">
+                <label>
+                  <input type="radio" name="answer" value="Tracks with eyes">
+                  <span>Tracks with eyes</span>
+                </label>
+                <label>
+                  <input type="radio" name="answer" value="Tries to follow">
+                  <span>Tries to follow</span>
+                </label>
+                <label>
+                  <input type="radio" name="answer" value="Gets excited">
+                  <span>Gets excited</span>
+                </label>
+                <label>
+                  <input type="radio" name="answer" value="Different reaction">
+                  <span>Different reaction</span>
+                </label>
+              </div>
+            </main>
+            <footer>
+              <button id="next-button">Continue</button>
+            </footer>
+          </div>
+          <div class="scoreboard-container" id="scoreboard-container" style="display: none;">
+            <h2 class="score_display">Scoreboard</h2>
+            <table id="scoreboard">
+              <thead>
+                <tr>
+                  <th>Question</th>
+                  <th>Your Answer</th>
+                  <th>Correct Answer</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <button id="restart-button">Continue</button>
+          </div>
+    </div>
+    
+
+
+    <!-- Environment  -->
+    <main>
+        <div class="clouds">
+            <img src="images/cloud.png" width="350px" alt="">
+            <img src="images/cloud.png" width="350px" alt="">
+            <img src="images/cloud.png" width="350px" alt="">
+            <img src="images/cloud.png" width="350px" alt="">
+            <img src="images/cloud.png" width="350px" alt="">
+            <img src="images/cloud.png" width="350px" alt="">
+            <img src="images/cloud.png" width="350px" alt="">
+            <img src="images/cloud.png" width="350px" alt="">
+        </div>
+        
+        <div class="ground">
+
+            <div class="trees">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+                <img src="images/tree.png" class="tree" alt="">
+                <img src="images/densetrees.png" class="densetree" alt="">
+            </div>
+        
+            <div class="objects">   
+                <div class="meditation"><img src="images/meditation.png" width="150px" alt=""></div>
+                <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+                <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div> 
+                <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+                
+                <div class="space">
+                    <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+                </div>
+                <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div> 
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="black_rock"><img src="images/blackrock.png" width="350px" alt=""></div>
+                <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+                <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div> 
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+                <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div> 
+                
+                <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+                <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div> 
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="black_rock"><img src="images/blackrock.png" width="350px" alt=""></div>
+                <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div> 
+                <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+                <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="ghost">
+                    <img src="images/spirits.png" width="120px" alt="spirit">
+                </div>
+
+                <div class="first-aid">
+                    <img src="images/firstaid.png" width="70px" alt="">
+                </div>
+
+                <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+                <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="snowman1"><img src="images/snowman.png" width="400px" alt=""></div>
+                
+                <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+                <div class="hermit1"><img src="images/hermit.png" width="180px" alt=""></div>
+                <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div> 
+                <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div> 
+
+                <div class="golem">
+                    <img src="images/Golems.png" width="180px" alt="">
+                </div>
+
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+                <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+                <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+                <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="black_rock"><img src="images/blackrock.png" width="350px" alt=""></div>
+                <div class="snowman2"><img src="images/snowman.png" width="400px" alt=""></div>
+                <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+                <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div> 
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div> 
+                <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+                <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+                <div class="first-aid">
+                    <img src="images/firstaid.png" width="70px" alt="">
+                </div>
+                
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div> 
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+
+                 <!-- SAND STORM -->
+                 <div class="sand_storm">
+                    <img src="images/storm.gif" alt="">
+                </div>
+
+                <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+                <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+                <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+                <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+                <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div> 
+                <div class="hermit"><img src="images/hermit.png" width="180px" alt=""></div>
+                <div class="snowman5"><img src="images/snowman.png" width="400px" alt=""></div>
+            </div>
+        </div>
+       
+
+         <!-- Player Character -->
+         <div id="player">
+            <!-- <img src="images/zen/Idle.gif"> -->
+             <img src="" alt="">
+            <div class="shield">
+                <img src="images/energy shield.gif" alt="shield">
+            </div>
+        </div>
+        <div class="indicator"></div>
+        <h4 class="animal_indicator">Animal Ahead ⚠</h4>
+        <h2 class="game_over">Game Over!!! Auto Restarting</h2>
+    </main>
+
+    <!-- memory game  -->
+
+    <div class="container1">
+        <h2>Memory Game :-</h2>
+        <ul class="board1"></ul>  
+    </div>
+    <div class="container">
+        <h2>Memory Game :-</h2>
+        <ul class="board"></ul>  
+    </div>
+     
+   
+
+    <script src="js/game.js"></script>
+
+    <script>
+        let audio = new Audio("images/interstaller.mp3");
+        isPlayable = false;
+    </script>
+
+    <script>
+    function updateAbilities() {
+        // Get the dropdown value
+        var selectedMonk = document.getElementById("character_gender").value;
+        
+        // Get the abilities text element
+        var abilitiesText = document.getElementById("abilities_text");
+
+        // Set the abilities text based on the selected monk type
+        switch (selectedMonk) {
+            case "Zen Monk":
+                abilitiesText.innerHTML = "⚔️ Enhanced meditation skills, quicker energy recovery, powerful healing abilities.";
+                break;
+            case "Ranger Monk":
+                abilitiesText.innerHTML = "🏃‍♂️ Faster running speed, agility, and quick evasive maneuvers.";
+                break;
+            case "Warrior Monk":
+                abilitiesText.innerHTML = "🛡️ Worriar monk can take more damage than others";
+                break;
+            case "Mystic Monk":
+                abilitiesText.innerHTML = "🔮 Teleportation (press 'T' when energy > 10), master of mystical arts, energy manipulation.";
+                break;
+            default:
+                abilitiesText.innerHTML = "⚔️ Enhanced meditation skills, quicker energy recovery, powerful healing abilities.";
+        }
+    }
+     
+    </script>
+    <script>
+    function form_submit() {
+        const form_obj = document.querySelector(".game_form"); // Assuming this is the form object you are hiding
+        form_obj.style.display = "none";
+        game_is_paused = false;
+
+        const character_name = document.querySelector("#character_name").value;
+        characterType  = document.querySelector("#character_gender").value;
+        localStorage.setItem('character_name', character_name);
+        localStorage.setItem('character_gender', characterType );
+        if (!character_name) {
+            alert("Please enter a character name.");
+            form_obj.style.display = "block"; // Show the form again if validation fails
+            return; // Exit the function if the name is not provided
+        }
+        else {
+            activateMonkAbilities(characterType)
+            document.body.classList.add('weather');
+            Weather();
+            startTimer();
+            isPlayable = true;
+            audio.play();
+            audio.addEventListener('ended', function() {
+                audio.currentTime = 0; // Reset the audio to the start
+                audio.play(); // Replay the audio
+            });
+            var name = $('#character_name').val();
+            var character = $('#character_gender').val();
+
+            $.ajax({
+                url: 'Database/add_user.php',
+                method: 'POST',
+                data: { name: name, character: character},
+                success: function (response) {
+                    $('#name').val('');
+                    // $('#email').val('');
+                    // $('#character_gender').val('');
+                    // loadUsers(); // Reload the user list
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error adding user:', error);
+                }
+            });
+        }
+        
+        console.log("character name is :- " + character_name);
+        console.log("character Type is :- " + characterType );
+
+        updatePlayerImage('Idle'); // Set the initial image based on the selected gender
+    }
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</body>
+</html>

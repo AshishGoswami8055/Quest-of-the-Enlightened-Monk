@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design settings for mobile devices -->
+    <title>Thank You</title> <!-- Title of the webpage displayed in the browser tab -->
+    <link rel="stylesheet" href="css/thanks.css"> <!-- Link to the external CSS file for styling the thank you page -->
+    <link rel="shortcut icon" href="images/golden_energies.png" type="icon"> <!-- Icon displayed in the browser tab -->
+</head>
+
+<body>
+    <div class="content"> <!-- Main content container -->
+        <div class="wrapper-1"> <!-- First wrapper for layout -->
+            <div class="wrapper-2"> <!-- Second wrapper for inner content -->
+                <h1>The END!</h1> <!-- Main heading for the thank you message -->
+                <p>Thanks for Playing this game....</p> <!-- Message to the player -->
+                <button class="go-home" onclick="openGame()"> <!-- Button to replay the game -->
+                    Play Again..
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Source+Sans+Pro" rel="stylesheet"> <!-- Google Fonts for styling -->
+</body>
+
+<script>
+    // Function to open the game page and close the current thank you page
+    function openGame() {
+        window.open('index.html'); // Open the main game page
+        window.close('thanks.html'); // Close the current thank you page (note: this may not work in all browsers)
+    }
+</script>
+
+</html>

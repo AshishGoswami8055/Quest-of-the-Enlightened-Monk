@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Preconnect to external fonts for improved loading performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Link to Google Fonts for custom typography -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  />
+  
+  <style>
+    /* Global styles for all elements */
+    * {
+      box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+      font-family: 'Press Start 2P', cursive; /* Sets the font for the entire document */
+    }
+    
+    /* Body styles */
+    body {
+      background-color: #262626; /* Dark background color for the body */
+    }
+  </style>
+</head>
+<body>
+  <!-- Main container div to center content on the screen -->
+  <div style="position: relative; display: flex; justify-content: center; transform: translateY(22%);">
+    <!-- Smaller container for health and timer display -->
+    <div
+      style="
+        position: absolute;
+        display: flex;
+        width: 75%; /* Set width of the health/timer container */
+        align-items: center; /* Align items vertically in the center */
+        padding: 20px; /* Add padding around the content */
+      "
+    >
+      <!-- Player health bar -->
+      <div
+        style="
+          position: relative;
+          width: 100%; /* Full width for the player health bar */
+          display: flex;
+          justify-content: flex-end; /* Align content to the right */
+          border-top: 4px solid white; /* Top border for styling */
+          border-left: 4px solid white; /* Left border for styling */
+          border-bottom: 4px solid white; /* Bottom border for styling */
+        "
+      >
+        <div style="background-color: red; height: 30px; width: 100%"></div> <!-- Background for the health bar -->
+        <div
+          id="playerHealth" <!-- Health indicator for the player -->
+          style="
+            position: absolute;
+            background: #818cf8; /* Color of the player health indicator */
+            top: 0; /* Align to the top */
+            right: 0; /* Align to the right */
+            bottom: 0; /* Stretch to the bottom */
+            width: 100%; /* Full width for health indicator */
+          "
+        ></div>
+      </div>
+
+      <!-- Timer display -->
+      <div
+        id="timer" <!-- Timer element -->
+        style="
+          background-color: black; /* Background color for the timer */
+          width: 100px; /* Set width of the timer */
+          height: 50px; /* Set height of the timer */
+          flex-shrink: 0; /* Prevent timer from shrinking */
+          display: flex; /* Enable flexbox for alignment */
+          align-items: center; /* Align items vertically */
+          justify-content: center; /* Center content horizontally */
+          color: white; /* Text color for the timer */
+          border: 4px solid white; /* Border for styling */
+        "
+      >
+        10 <!-- Initial timer value -->
+      </div>
+
+      <!-- Enemy health bar -->
+      <div
+        style="
+          position: relative;
+          width: 100%; /* Full width for the enemy health bar */
+          border-top: 4px solid white; /* Top border for styling */
+          border-bottom: 4px solid white; /* Bottom border for styling */
+          border-right: 4px solid white; /* Right border for styling */
+        "
+      >
+        <div style="background-color: red; height: 30px"></div> <!-- Background for the enemy health bar -->
+        <div
+          id="enemyHealth" <!-- Health indicator for the enemy -->
+          style="
+            position: absolute;
+            background: #818cf8; /* Color of the enemy health indicator */
+            top: 0; /* Align to the top */
+            right: 0; /* Align to the right */
+            bottom: 0; /* Stretch to the bottom */
+            left: 0; /* Align to the left */
+          "
+        ></div>
+      </div>
+
+      <div></div> <!-- Empty div for spacing -->
+    </div>
+
+    <!-- Display area for game messages (e.g., win/loss/tie) -->
+    <div
+      id="displayText"
+      style="
+        position: absolute;
+        color: white; /* Text color for the display messages */
+        align-items: center; /* Align items vertically */
+        justify-content: center; /* Center content horizontally */
+        top: 0; /* Align to the top */
+        right: 0; /* Align to the right */
+        bottom: 0; /* Align to the bottom */
+        left: 0; /* Align to the left */
+        display: none; /* Initially hidden */
+      "
+    >
+      Tie <!-- Default message, will change based on game outcome -->
+    </div>
+
+    <!-- Canvas for game rendering (where the game will be drawn) -->
+    <canvas></canvas>
+  </div>
+
+  <!-- GSAP (GreenSock Animation Platform) library for animations -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+    integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <!-- Importing JavaScript files for game logic -->
+  <script src="js/utils.js"></script> <!-- Utility functions for the game -->
+  <script src="js/classes.js"></script> <!-- Class definitions for game entities -->
+  <script src="index.js"></script> <!-- Main script for game logic -->
+</body>
+</html>

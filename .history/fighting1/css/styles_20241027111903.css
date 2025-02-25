@@ -1,0 +1,194 @@
+/* Define a custom font called 'silver' sourced from the specified .ttf file */
+@font-face {
+    font-family: 'silver'; /* Name of the font */
+    src: url(../assets/fonts/Silver.ttf); /* Path to the font file */
+}
+
+/* Basic styles for the body element */
+body {
+    box-sizing: border-box; /* Ensure padding and borders are included in element's total width and height */
+    background-color: #000; /* Set background color to black */
+}
+
+/* Container for centering content */
+.container {
+    position: relative; /* Positioning context for absolutely positioned child elements */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center child elements horizontally */
+    width: 100%; /* Full width of the parent element */
+    padding-top: 50px; /* Space above the container */
+}
+
+/* Heads-Up Display (HUD) for displaying game stats */
+.hud {
+    position: absolute; /* Positioning context for absolute placement */
+    display: none; /* Hidden by default, shown when necessary */
+    width: 50%; /* Width of the HUD */
+    align-items: center; /* Center child elements vertically */
+    padding: 20px; /* Padding around the HUD */
+}
+
+/* Layout for health display */
+.healthLayout {
+    position: relative; /* Positioning context for absolute children */
+    height: 30px; /* Fixed height for health bar */
+    width: 100%; /* Full width of the container */
+}
+
+/* Health bar showing remaining health */
+.remainingHealthbar {
+    background-color: #EF4444; /* Red color for the remaining health */
+    height: 30px; /* Same height as the health layout */
+    width: 100%; /* Full width of the container */
+}
+
+/* Total health bar behind the remaining health bar */
+.totalHealthBar {
+    position: absolute; /* Absolute positioning to overlap on the health layout */
+    background-color: #8B5CF6; /* Purple color for the total health bar */
+    top: 0; /* Align to the top */
+    right: 0; /* Align to the right */
+    bottom: 0; /* Align to the bottom */
+    left: 0; /* Align to the left */
+    display: flex; /* Flexbox for layout if needed */
+}
+
+/* Timer display styling */
+.timer {
+    background-color: wheat; /* Light background for visibility */
+    font-family: 'silver'; /* Use the custom 'silver' font */
+    font-size: 35px; /* Font size for the timer */
+    height: 50px; /* Fixed height for the timer */
+    width: 75px; /* Fixed width for the timer */
+    flex-shrink: 0; /* Prevent shrinking */
+    display: flex; /* Flexbox for layout */
+    align-items: flex-end; /* Align text to the bottom */
+    justify-content: center; /* Center text horizontally */
+}
+
+/* Result display styling for game outcomes */
+.result {
+    position: absolute; /* Absolute positioning for full overlay */
+    font-family: 'silver'; /* Use the custom 'silver' font */
+    font-size: 100px; /* Large font size for visibility */
+    display: none; /* Hidden by default, shown when needed */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    color: wheat; /* Text color */
+    top: 0; /* Align to the top */
+    right: 0; /* Align to the right */
+    bottom: 0; /* Align to the bottom */
+    left: 0; /* Align to the left */
+    text-shadow: 1px 0 0 black, /* Shadow effects for better visibility */
+        -1px 0 0 black,
+        0 1px 0 black,
+        0 -1px 0 black,
+        1px 1px black,
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black;
+}
+
+/* Game area styling */
+.game {
+    display: flex; /* Flexbox for layout */
+    width: 100%; /* Full width of the parent */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+/* Styling for the game window */
+#gameWindow {
+    border: 2px solid black; /* Black border around the game window */
+}
+
+/* Key mapping display styling */
+.keymapping {
+    display: flex; /* Flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    font-family: 'silver'; /* Use the custom 'silver' font */
+    font-size: 40px; /* Font size for key mapping */
+}
+
+/* Individual key display styling */
+.keys {
+    margin: 30px; /* Margin around key displays */
+    padding: 40px; /* Padding inside key displays */
+    border: 2px solid black; /* Black border around key displays */
+}
+
+/* Header style within key displays */
+.keys h1 {
+    margin: 0px; /* Remove default margin */
+}
+
+/* Menu styling */
+.menu {
+    font-family: silver; /* Use the custom 'silver' font */
+    color: black; /* Text color */
+    position: absolute; /* Absolute positioning for centering */
+    width: 1024px; /* Fixed width for the menu */
+    height: 576px; /* Fixed height for the menu */
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+/* Title styling for the menu */
+.title {
+    font-size: 160px; /* Large font size for the title */
+}
+
+/* Styling for individual menu options */
+.menuOption {
+    border: solid white; /* White border around options */
+    color: white; /* Text color for options */
+    border-width: 1px 5px 5px 1px; /* Border width */
+    font-size: 60px; /* Font size for options */
+    padding: 10px 20px 5px 10px; /* Padding inside options */
+    margin-top: 10px; /* Margin above each option */
+    margin-bottom: 10px; /* Margin below each option */
+    cursor: pointer; /* Change cursor on hover */
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for menu options */
+.menuOption:hover {
+    box-shadow: inset 350px 0 0 0 #9eade9; /* Background change on hover */
+    color: black; /* Change text color on hover */
+}
+
+/* Author information styling */
+.author {
+    padding-top: 10px; /* Space above the author text */
+    font-size: 30px; /* Font size for author */
+    font-style: italic; /* Italicize author text */
+}
+
+/* Styling for animated character text */
+.animate-charcter {
+    text-transform: uppercase; /* Transform text to uppercase */
+    background-image: linear-gradient(-225deg, /* Gradient background for the text */
+        #231557 0%,
+        #44107a 29%,
+        #A8EEE3 67%,
+        #9eade9 100%);
+    background-size: auto auto; /* Default background size */
+    background-clip: border-box; /* Clip background to the border */
+    background-size: 200% auto; /* Set background size for animation */
+    color: #fff; /* Text color */
+    background-clip: text; /* Clip background to text for gradient effect */
+    -webkit-background-clip: text; /* Support for WebKit browsers */
+    -webkit-text-fill-color: transparent; /* Make text fill transparent for gradient effect */
+    animation: textclip 2s linear infinite; /* Apply animation for text */
+    display: inline-block; /* Treat as an inline-block element */
+    font-size: 190px; /* Large font size for animated text */
+}
+
+/* Keyframes for text animation */
+@keyframes textclip {
+    to {
+        background-position: 200% center; /* Move background position for animation effect */
+    }
+}

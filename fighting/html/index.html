@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding for the document -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Ensures compatibility with IE browsers -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design for various screen sizes -->
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Link to external CSS stylesheet for styling -->
+    <title>Fighting game</title> <!-- Title of the webpage -->
+</head>
+
+<body>
+
+    <div class="container"> <!-- Main container for the game UI -->
+
+        <div id="menu" class="menu"> <!-- Menu section for the game -->
+
+            <div class="title animate-charcter"> <!-- Title of the game with animation -->
+                Fighting Game!
+            </div>
+            <div class="options"> <!-- Options for game modes -->
+                <div id="1player" class="menuOption"> <!-- Option for one player mode -->
+                    Play
+                </div>
+            </div>
+        </div>
+
+        <div id="hud" class="hud"> <!-- Heads-up display for the game status -->
+
+            <!-- Player's health -->
+            <div class="healthLayout"> <!-- Layout for player's health bar -->
+                <div class="remainingHealthbar"></div> <!-- Remaining health visual (to be styled) -->
+                <!-- TODO: Fix name bars. Player's health should decrease towards the timer. -->
+                <div id="playerHealth" class="totalHealthBar"></div> <!-- Total health bar for player -->
+            </div>
+            <!-- Timer -->
+            <div id="timer" class="timer"> -- </div> <!-- Timer display for the game -->
+
+            <!-- Enemy's health -->
+            <div class="healthLayout"> <!-- Layout for enemy's health bar -->
+                <div class="remainingHealthbar"></div> <!-- Remaining health visual for enemy -->
+                <!-- TODO: Fix name bars. -->
+                <div id="enemyHealth" class="totalHealthBar"></div> <!-- Total health bar for enemy -->
+            </div>
+        </div>
+
+        <div id="result" class="result"> result </div> <!-- Display for game result (win/lose) -->
+        <div class="game"> <!-- Container for the game canvas -->
+            <canvas id="gameWindow"> </canvas> <!-- Canvas element where the game is rendered -->
+        </div>
+    </div>
+
+    <!-- Include GSAP library for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
+        integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Main script for game logic -->
+    <script type="module" src="../js/index.js"> </script>
+</body>
+
+</html>

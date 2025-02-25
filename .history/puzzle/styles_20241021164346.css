@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* Adjust the number of columns and tile size */
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px; /* Space between tiles */
+    margin-bottom: 20px; /* Space below the board */
+    border: 2px solid #333; /* Border around the board */
+    padding: 5px; /* Padding around the tiles */
+    background-color: #fff; /* Background color of the board */
+    border-radius: 10px; /* Rounded corners for the board */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+img {
+    width: 100px; /* Adjust image size */
+    height: 100px; /* Adjust image size */
+    object-fit: cover; /* Maintain aspect ratio of images */
+    border-radius: 5px; /* Slight rounding of image corners */
+    cursor: grab; /* Cursor changes to grab for draggable items */
+    transition: transform 0.2s; /* Smooth transition for image transform */
+}
+
+img:active {
+    cursor: grabbing; /* Change cursor to grabbing when dragging */
+    transform: scale(0.95); /* Slightly scale down the image while dragging */
+}
+
+#turns {
+    font-size: 18px; /* Increase font size for turn count */
+    color: #555; /* Color for turn count text */
+}
+
+#message {
+    font-size: 20px; /* Font size for the message */
+    color: #28a745; /* Color for the success message */
+    font-weight: bold; /* Make message bold */
+    margin-top: 10px; /* Space above the message */
+}

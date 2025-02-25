@@ -1,0 +1,72 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef; /* Light gray background */
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    height: 100vh; /* Full height */
+}
+
+/* Title styling */
+h1 {
+    color: #343a40; /* Dark text for contrast */
+    text-align: center; /* Center the title */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Instructions for players */
+.instructions {
+    color: #6c757d; /* Gray text for instructions */
+    font-size: 16px; /* Font size for instructions */
+    text-align: center; /* Center the instructions */
+    margin-bottom: 30px; /* Space below instructions */
+}
+
+/* Container for the entire puzzle game */
+.puzzle-container {
+    width: 320px; /* Set a fixed width for the puzzle container */
+    margin: 20px auto; /* Center the container */
+    display: grid; /* Use grid layout for puzzle pieces */
+    grid-template-columns: repeat(3, 100px); /* Three columns for puzzle pieces */
+    grid-gap: 5px; /* Space between puzzle pieces */
+}
+
+/* Canvas pieces styling */
+canvas {
+    border: 2px solid #007bff; /* Border for each puzzle piece */
+    border-radius: 8px; /* Rounded corners for pieces */
+    cursor: move; /* Change cursor on hover */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+canvas:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Full image styling */
+.full-image {
+    margin: 20px auto; /* Center the full image */
+    border: 2px solid #007bff; /* Border around the full image */
+    border-radius: 8px; /* Rounded corners for the full image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Success message styling */
+#message {
+    margin-top: 20px; /* Space above the message */
+    font-size: 20px; /* Font size for the message */
+    font-weight: bold; /* Make text bold */
+    color: green; /* Green color for success message */
+}
+
+/* Answer reveal message */
+.answer-reveal {
+    margin-top: 10px; /* Space above the message */
+    font-size: 16px; /* Font size for the answer reveal */
+    color: #dc3545; /* Red color for emphasis */
+    text-align: center; /* Center the message */
+}

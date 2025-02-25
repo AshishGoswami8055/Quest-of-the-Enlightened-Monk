@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Puzzle</title>
+    <style>
+        #board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px); /* Adjust size as needed */
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px; /* Space between tiles */
+        }
+
+        img {
+            width: 100px; /* Adjust image size */
+            height: 100px; /* Adjust image size */
+            object-fit: cover; /* Keep aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div id="board"></div>
+    <div id="turns">Turns: 0</div>
+    <div id="message"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

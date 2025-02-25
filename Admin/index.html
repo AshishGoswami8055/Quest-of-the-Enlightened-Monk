@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Monk Game With Memory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        body:hover {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            width: 95%;
+            margin: 50px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        th,
+        td {
+            padding: 8px 12px;
+            border: 1px solid #8b8a8a;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        table th,
+        table tr {
+            background-color: #f5f5f5;
+            color: rgb(62, 62, 62);
+            padding: 8px;
+            text-align: left;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        table th:hover,
+        table tr:hover {
+            background-color: #cbcbcb;
+            color: rgb(62, 62, 62);
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>Users ScoreBoard</h2>
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Character_Name</th>
+                    <th>Level 1 Energies</th>
+                    <th>Level 1 Health</th>
+                    <th>Level 1 Time</th>
+                    <th>Level 1 Score</th>
+                    <th>Level 2 Energies</th>
+                    <th>Level 2 Health</th>
+                    <th>Level 2 Time</th>
+                    <th>Level 2 Score</th>
+                    <th>Level 3 Energies</th>
+                    <th>Level 3 Health</th>
+                    <th>Level 3 Time</th>
+                    <th>Level 3 Score</th>
+                    <th>Date</th>
+                    <!-- <th>Action</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Users will be dynamically loaded here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let intervalId; // To store the interval ID
+        const INTERVAL_TIME = 1000; // Time in milliseconds
+
+        // Start or restart the interval
+        function startUpdates() {
+            if (intervalId) {
+                clearInterval(intervalId); // Clear any existing interval
+            }
+            intervalId = setInterval(loadUsers, INTERVAL_TIME); // Set new interval
+        }
+
+        // Load users when the page is ready
+        // $(document).ready(function() {
+        //     loadUsers(); // Initial load of users
+        //     setInterval(loadUsers, 1000); // Reload users every 5 seconds
+        // });
+
+        // Load users when the page is ready
+        $(document).ready(function () {
+            loadUsers();
+        });
+
+        // Function to load users
+        function loadUsers() {
+            $.ajax({
+                url: '../Database/fetch_user.php',
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    var userTableBody = $('#userTable tbody');
+                    userTableBody.empty(); // Clear the table before adding new data
+
+                    response.forEach(function (user) {
+                        var row = `<tr>
+                            <td>${user.id}</td>
+                            <td>${user.name}</td>
+                            <td>${user.character}</td>
+                            <td>${user.level1Energies}</td>
+                            <td>${user.level1Health}</td>
+                            <td>${user.level1Min} : ${user.level1Sec}</td>
+                            <td>${user.level1Score}</td>
+                            <td>${user.level2Energies}</td>
+                            <td>${user.level2Health}</td>
+                            <td>${user.level2Min} : ${user.level2Sec}</td>
+                            <td>${user.level2Score}</td>
+                            <td>${user.level3Energies}</td>
+                            <td>${user.level3Health}</td>
+                            <td>${user.level3Min} : ${user.level3Sec}</td>
+                            <td>${user.level3Score}</td>
+                            <td>${user.date}</td>
+                        </tr>`;
+                        userTableBody.append(row);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error loading users:', error);
+                }
+            });
+        }
+        loadUsers()
+         // Start automatic updates when the page loads
+        $(document).ready(function() {
+            startUpdates(); // Initial start
+        });
+
+        // Function to pause updates
+        function pauseUpdates() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        // Function to resume updates
+        function resumeUpdates() {
+            if (!intervalId) {
+                startUpdates();
+            }
+        }
+    </script>
+</body>

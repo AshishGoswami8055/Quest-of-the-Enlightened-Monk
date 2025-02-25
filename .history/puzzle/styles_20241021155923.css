@@ -1,0 +1,13 @@
+.puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* Adjust based on number of pieces */
+    grid-gap: 5px;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+canvas {
+    border: 2px solid #333;
+    cursor: move;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}

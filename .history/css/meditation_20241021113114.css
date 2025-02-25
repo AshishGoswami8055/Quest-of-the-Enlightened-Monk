@@ -1,0 +1,61 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles specific to the Meditation page */
+body.meditation-page {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f9f7; /* Light background color */
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Style for the main container */
+.container {
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading style for the Meditation page */
+h2 {
+    font-size: 2.5rem;
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+/* Paragraph styling for the Meditation page */
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #34495e;
+    margin-bottom: 30px;
+}
+
+/* Video styles for the Meditation page */
+#meditation-video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #27ae60;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive video */
+@media (max-width: 768px) {
+    #meditation-video {
+        width: 100%;
+        height: auto;
+    }
+}

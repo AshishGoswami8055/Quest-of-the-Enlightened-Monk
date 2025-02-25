@@ -1,0 +1,11 @@
+Hello User,
+
+To Enjoy the game follow some steps given bellow :-
+
+Step 1: Open index.html (Level 1 which has the Character form)
+Step 2: Fill the form in the index.html (Form are linked to the gender of the character make sure to go through the index.html first)
+Step 3: Enjoy....
+
+
+Tip :- when you move closer to the animals the Warning Indicator are shown then you can press 'v' key to kill the animal
+*Indicator are not shown form the spikes.

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design settings for mobile devices -->
+    <title>Score Board</title> <!-- Title of the webpage displayed in the browser tab -->
+    <link rel="stylesheet" href="css/scoreboard.css"> <!-- Link to the external CSS file for styling the scoreboard -->
+</head>
+
+<body>
+    <h1>SCOREBOARD</h1> <!-- Main heading for the scoreboard -->
+    <div class="scoreboard center"> <!-- Container for the scoreboard -->
+        <table border="1" cellpadding="15" cellspacing="0" width="80%"> <!-- Table to display the scores -->
+            <tr>
+                <th>ID</th> <!-- Column header for ID -->
+                <th>Name</th> <!-- Column header for Player Name -->
+                <th>Character_Type</th> <!-- Column header for Character Type -->
+                <th>Golden Energies</th> <!-- Column header for Golden Energies collected -->
+                <th>Health</th> <!-- Column header for Health percentage -->
+                <th>Time</th> <!-- Column header for Time taken to complete the level -->
+                <th>Score</th> <!-- Column header for Score -->
+            </tr>
+            <tr>
+                <th>Level 1</th> <!-- Row header for Level 1 -->
+                <th class="name" rowspan="3"></th> <!-- Placeholder for Player Name -->
+                <th class="characterType" rowspan="3"></th> <!-- Placeholder for Character Type -->
+                <th class="energies1"></th> <!-- Placeholder for Golden Energies collected in Level 1 -->
+                <th class="health1"></th> <!-- Placeholder for Health in Level 1 -->
+                <th class="time1"></th> <!-- Placeholder for Time in Level 1 -->
+                <th class="score1"></th> <!-- Placeholder for Score in Level 1 -->
+            </tr>
+            <tr>
+                <th>Level 2</th> <!-- Row header for Level 2 -->
+                <th class="energies2"></th> <!-- Placeholder for Golden Energies collected in Level 2 -->
+                <th class="health2"></th> <!-- Placeholder for Health in Level 2 -->
+                <th class="time2"></th> <!-- Placeholder for Time in Level 2 -->
+                <th class="score2"></th> <!-- Placeholder for Score in Level 2 -->
+            </tr>
+            <tr>
+                <th>Level 3</th> <!-- Row header for Level 3 -->
+                <th class="energies3"></th> <!-- Placeholder for Golden Energies collected in Level 3 -->
+                <th class="health3"></th> <!-- Placeholder for Health in Level 3 -->
+                <th class="time3"></th> <!-- Placeholder for Time in Level 3 -->
+                <th class="score3"></th> <!-- Placeholder for Score in Level 3 -->
+            </tr>
+        </table>
+        <a href="index.html">Re - Play</a> <!-- Link to replay the game -->
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery library for easy DOM manipulation -->
+<script>
+    // Level 1 Score Data Retrieval
+    let character_name = localStorage.getItem("character_name"); // Retrieve character name from local storage
+    let character_gender = localStorage.getItem("character_gender"); // Retrieve character gender from local storage
+
+    // Retrieve scores for Level 1, defaulting to "Not Played" if not found
+    let Energies_1 = localStorage.getItem("Energies_1") || "Not Played";
+    let Health_1 = localStorage.getItem("Health_1") || "Not Played";
+    let Min_1 = localStorage.getItem("Min_1") || "Not Played";
+    let Sec_1 = localStorage.getItem("Sec_1") || "Not Played";
+    let Score_1 = localStorage.getItem("Score_1") || "Not Played";
+    console.log(Energies_1, Health_1, Min_1, Sec_1, Score_1); // Log Level 1 data to the console
+
+    // Level 2 Score Data Retrieval
+    let Energies_2 = localStorage.getItem("Energies_2") || "Not Played";
+    let Health_2 = localStorage.getItem("Health_2") || "Not Played";
+    let Min_2 = localStorage.getItem("Min_2") || "Not Played";
+    let Sec_2 = localStorage.getItem("Sec_2") || "Not Played";
+    let Score_2 = localStorage.getItem("Score_2") || "Not Played";
+    console.log(Energies_2, Health_2, Min_2, Sec_2, Score_2); // Log Level 2 data to the console
+
+    // Level 3 Score Data Retrieval
+    let Energies_3 = localStorage.getItem("Energies_3") || "Not Played";
+    let Health_3 = localStorage.getItem("Health_3") || "Not Played";
+    let Min_3 = localStorage.getItem("Min_3") || "Not Played";
+    let Sec_3 = localStorage.getItem("Sec_3") || "Not Played";
+    let Score_3 = localStorage.getItem("Score_3") || "Not Played";
+    console.log(Energies_3, Health_3, Min_3, Sec_3, Score_3); // Log Level 3 data to the console
+
+    // Check for null values and set default if necessary
+    if(Energies_3 == null){
+        Energies_3 = "Not Played";
+    }
+
+    // Display Data on the Scoreboard
+    document.querySelector(".name").innerHTML = character_name; // Set player name in the scoreboard
+    document.querySelector(".characterType").innerHTML = character_gender.toUpperCase(); // Set character gender in uppercase
+    document.querySelector(".energies1").innerHTML = Energies_1; // Set Golden Energies for Level 1
+    document.querySelector(".health1").innerHTML = Health_1 + " %"; // Set Health for Level 1
+    document.querySelector(".time1").innerHTML = Min_1 + " : " + Sec_1; // Set Time for Level 1
+    document.querySelector(".score1").innerHTML = Score_1; // Set Score for Level 1
+
+    document.querySelector(".energies2").innerHTML = Energies_2; // Set Golden Energies for Level 2
+    document.querySelector(".health2").innerHTML = Health_2 + " %"; // Set Health for Level 2
+    document.querySelector(".time2").innerHTML = Min_2 + " : " + Sec_2; // Set Time for Level 2
+    document.querySelector(".score2").innerHTML = Score_2; // Set Score for Level 2
+
+    document.querySelector(".energies3").innerHTML = Energies_3; // Set Golden Energies for Level 3
+    document.querySelector(".health3").innerHTML = Health_3 + " %"; // Set Health for Level 3
+    document.querySelector(".time3").innerHTML = Min_3 + " : " + Sec_3; // Set Time for Level 3
+    document.querySelector(".score3").innerHTML = Score_3; // Set Score for Level 3
+
+    // AJAX request to update scores in the database
+    $.ajax({
+        url: 'Database/update_Score.php', // Endpoint for score update
+        method: 'POST', // HTTP method
+        data: { 
+            Energies_1: Energies_1, 
+            Health_1: Health_1, 
+            Min_1: Min_1, 
+            Sec_1: Sec_1, 
+            Score_1: Score_1, 
+            Energies_2: Energies_2, 
+            Health_2: Health_2, 
+            Min_2: Min_2, 
+            Sec_2: Sec_2, 
+            Score_2: Score_2, 
+            Energies_3: Energies_3, 
+            Health_3: Health_3, 
+            Min_3: Min_3, 
+            Sec_3: Sec_3, 
+            Score_3: Score_3 
+        },
+        success: function (response) {
+            $('#name').val(''); // Clear name input (if applicable)
+            // $('#email').val(''); // Clear email input (if applicable)
+            $('#character_gender').val(''); // Clear character gender input (if applicable)
+            // loadUsers(); // Reload the user list (if applicable)
+        },
+        error: function (xhr, status, error) {
+            console.error('Error adding user:', error); // Log any errors during the AJAX request
+        }
+    });
+
+</script>
+<script src="js/jquery.min.js"></script> <!-- Local jQuery library (can be removed if using CDN above) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery library for easy DOM manipulation -->
+</html>

@@ -1,0 +1,56 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Darkened background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Instructions */
+.instructions {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Puzzle container */
+.puzzle-container {
+    width: 320px; /* Adjust width as needed */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for a 3x3 grid */
+    grid-gap: 5px; /* Space between tiles */
+}
+
+/* Canvas pieces */
+.puzzle-container img {
+    width: 100%; /* Make images responsive to their container */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Change cursor to pointer */
+    border: 2px solid #333; /* Optional: border for tiles */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Optional: shadow for depth */
+}
+
+/* Full image styling */
+.full-image {
+    margin: 20px auto;
+    border: 2px solid #ddd;
+}
+
+/* Message box for success */
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+}
+
+/* Turn counter styling */
+#turns {
+    margin-top: 10px;
+    font-size: 16px;
+    color: white; /* Change color to match theme */
+}

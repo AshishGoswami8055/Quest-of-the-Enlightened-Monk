@@ -1,0 +1,109 @@
+/* Importing the Lobster font from Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+
+/* Basic styling for the body */
+body {
+  margin-top: 20px; /* Adds a top margin to the body */
+}
+
+/* Styling for unordered lists */
+ul {
+  margin: 0; /* Resets margin */
+  padding: 0; /* Resets padding */
+  list-style: none; /* Removes default list styling */
+}
+
+/* Styling for the main heading (h1) */
+h1 {
+  font-family: Lobster, Georgia, sans-serif; /* Sets font family */
+  font-size: 8vw; /* Font size responsive to viewport width */
+  color: #555358; /* Text color */
+  text-align: center; /* Centers the text */
+  margin: 0 0 2rem; /* Resets top and bottom margins, adds bottom margin */
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem; /* Sets fixed font size for larger screens */
+  }
+}
+
+/* Container styling to limit width */
+.container {
+  max-width: 800px; /* Maximum width of the container */
+  width: 90%; /* Sets width to 90% of the parent */
+  margin: auto; /* Centers the container */
+}
+
+/* Styling for the game board layout */
+.board {
+  display: grid; /* Uses CSS Grid for layout */
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+  grid-gap: 10px; /* Space between grid items */
+}
+
+/* Media query to adjust the board layout on smaller screens */
+@media screen and (min-width: 480px) {
+  .board {
+    grid-template-columns: repeat(4, 1fr); /* Changes to 4 columns */
+    grid-gap: 15px; /* Increases gap between items */
+  }
+}
+
+/* Styling for individual game cards */
+.card {
+  position: relative; /* Allows absolute positioning of child elements */
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); /* Adds shadow effect */
+  padding-bottom: 100%; /* Maintains aspect ratio */
+  border-radius: 5px; /* Rounds corners of the card */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  color: #ccc; /* Default text color */
+  font-size: 12.5vw; /* Responsive font size */
+  background: #fff; /* Background color of the card */
+  display: flex; /* Enables flexbox layout */
+  align-items: center; /* Centers items vertically */
+  justify-content: center; /* Centers items horizontally */
+  background-size: contain; /* Scales background image to fit */
+  background-position: center; /* Centers background image */
+  background-repeat: no-repeat; /* Prevents background image repetition */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; /* More shadow effects for depth */
+}
+
+/* Styling for matched cards */
+.card.is-match {
+  background-color: #99ce2a; /* Changes background color for matched cards */
+  animation: match 0.5s ease-in-out; /* Applies match animation */
+  cursor: default; /* Changes cursor to default */
+}
+
+/* Temporary style for flipped card */
+.card.is-flipped {
+  background-color: #fff; /* Keeps flipped cards white */
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 800px) {
+  .card {
+    font-size: 100px; /* Increases font size for larger screens */
+  }
+}
+
+/* Keyframes for match animation */
+@keyframes match {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  40% {
+    transform: scale(1.08); /* Slightly enlarges */
+  }
+  60% {
+    transform: scale(1); /* Returns to original scale */
+  }
+  80% {
+    transform: scale(1.05); /* Slightly enlarges again */
+  }
+  100% {
+    transform: scale(1); /* Ends at original scale */
+  }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Board</title>
+    <link rel="stylesheet" href="css/scoreboard.css">
+</head>
+
+<body>
+    <h1>SCOREBOARD</h1>
+    <div class="scoreboard center">
+        <table border="1" cellpadding="15" cellspacing="0" width="80%">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Character_Type</th>
+                <th>Golden Energies</th>
+                <th>Health</th>
+                <th>Time</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                <th>Level 1</th>
+                <th class="name" rowspan="3"></th>
+                <th class="characterType" rowspan="3"></th>
+                <th class="energies1"></th>
+                <th class="health1"></th>
+                <th class="time1"></th>
+                <th class="score1"></th>
+            </tr>
+            <tr>
+                <th>Level 2</th>
+                <th class="energies2"></th>
+                <th class="health2"></th>
+                <th class="time2"></th>
+                <th class="score2"></th>
+            </tr>
+            <tr>
+                <th>Level 3</th>
+                <th class="energies3"></th>
+                <th class="health3"></th>
+                <th class="time3"></th>
+                <th class="score3"></th>
+            </tr>
+        </table>
+        <a href="index.html">Re - Play</a>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    
+    // Level 1 Score's 
+
+    let character_name = localStorage.getItem("character_name");
+    let character_gender = localStorage.getItem("character_gender");
+
+    let Energies_1 = localStorage.getItem("Energies_1") || "Not Played";
+    let Health_1 = localStorage.getItem("Health_1") || "Not Played";
+    let Min_1 = localStorage.getItem("Min_1") || "Not Played";
+    let Sec_1 = localStorage.getItem("Sec_1") || "Not Played";
+    let Score_1 = localStorage.getItem("Score_1") || "Not Played";
+    console.log(Energies_1, Health_1, Min_1, Sec_1, Score_1);
+
+    // Level 2 Score's 
+    let Energies_2 = localStorage.getItem("Energies_2") || "Not Played";
+    let Health_2 = localStorage.getItem("Health_2") || "Not Played";
+    let Min_2 = localStorage.getItem("Min_2") || "Not Played";
+    let Sec_2 = localStorage.getItem("Sec_2") || "Not Played";
+    let Score_2 = localStorage.getItem("Score_2") || "Not Played";
+    console.log(Energies_2, Health_2, Min_2, Sec_2, Score_2);
+
+    // Level 3 Score's 
+    let Energies_3 = localStorage.getItem("Energies_3") || "Not Played";
+    let Health_3 = localStorage.getItem("Health_3") || "Not Played";
+    let Min_3 = localStorage.getItem("Min_3") || "Not Played";
+    let Sec_3 = localStorage.getItem("Sec_3") || "Not Played";
+    let Score_3 = localStorage.getItem("Score_3") || "Not Played";
+    console.log(Energies_3, Health_3, Min_3, Sec_3, Score_3);
+
+    if(Energies_3 == null){
+        Energies_3 = "Not Played";
+    }
+
+    // Display Data 
+
+    document.querySelector(".name").innerHTML = character_name;
+    document.querySelector(".characterType").innerHTML = character_gender.toUpperCase();
+    document.querySelector(".energies1").innerHTML = Energies_1;
+    document.querySelector(".health1").innerHTML = Health_1 + " %";
+    document.querySelector(".time1").innerHTML = Min_1 + " : " + Sec_1;
+    document.querySelector(".score1").innerHTML = Score_1;
+
+    document.querySelector(".energies2").innerHTML = Energies_2;
+    document.querySelector(".health2").innerHTML = Health_2 + " %";
+    document.querySelector(".time2").innerHTML = Min_2 + " : " + Sec_2;
+    document.querySelector(".score2").innerHTML = Score_2;
+
+    document.querySelector(".energies3").innerHTML = Energies_3;
+    document.querySelector(".health3").innerHTML = Health_3 + " %";
+    document.querySelector(".time3").innerHTML = Min_3 + " : " + Sec_3;
+    document.querySelector(".score3").innerHTML = Score_3;
+
+    $.ajax({
+        url: 'Database/update_Score.php',
+        method: 'POST',
+        data: { Energies_1: Energies_1, Health_1: Health_1, Min_1:Min_1, Sec_1:Sec_1, Score_1:Score_1, Energies_2:Energies_2, Health_2:Health_2, Min_2:Min_2, Sec_2:Sec_2, Score_2:Score_2, Energies_3:Energies_3, Health_3:Health_3, Min_3:Min_3, Sec_3:Sec_3, Score_3:Score_3 },
+        success: function (response) {
+            $('#name').val('');
+            // $('#email').val('');
+            $('#character_gender').val('');
+            // loadUsers(); // Reload the user list
+        },
+        error: function (xhr, status, error) {
+            console.error('Error adding user:', error);
+        }
+    });
+
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</html>

@@ -1,0 +1,61 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif; /* Set the font for the entire page */
+    display: flex; /* Use flexbox layout for positioning elements */
+    flex-direction: column; /* Stack children elements vertically */
+    align-items: center; /* Center elements horizontally */
+    justify-content: center; /* Center elements vertically */
+    height: 100vh; /* Set height to fill the viewport */
+    background-color: #f4f4f4; /* Light grey background color */
+    margin: 0; /* Remove default margin */
+}
+
+/* Styles for the main heading */
+h1 {
+    margin-bottom: 20px; /* Space below the heading */
+    color: #333; /* Dark grey color for the heading */
+}
+
+/* Styles for the game board */
+#board {
+    display: grid; /* Use grid layout for the board */
+    grid-template-columns: repeat(3, 100px); /* Create 3 columns of 100px each */
+    grid-template-rows: repeat(3, 100px); /* Create 3 rows of 100px each */
+    gap: 5px; /* Space between grid items */
+    margin-bottom: 20px; /* Space below the board */
+    border: 2px solid #333; /* Dark grey border around the board */
+    padding: 5px; /* Padding inside the board */
+    background-color: #fff; /* White background color for the board */
+    border-radius: 10px; /* Rounded corners for the board */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect for depth */
+}
+
+/* Styles for images within the board */
+img {
+    width: 100px; /* Set image width to 100px */
+    height: 100px; /* Set image height to 100px */
+    object-fit: cover; /* Cover the entire area of the image */
+    border-radius: 5px; /* Slightly rounded corners for images */
+    cursor: grab; /* Change cursor to indicate draggable item */
+    transition: transform 0.2s; /* Smooth transformation effect */
+}
+
+/* Styles for active state of images when clicked */
+img:active {
+    cursor: grabbing; /* Change cursor to indicate grabbing state */
+    transform: scale(0.95); /* Slightly scale down the image when active */
+}
+
+/* Styles for displaying turns */
+#turns {
+    font-size: 18px; /* Font size for turns display */
+    color: #555; /* Medium grey color for text */
+}
+
+/* Styles for displaying messages */
+#message {
+    font-size: 20px; /* Font size for messages */
+    color: #28a745; /* Green color for success messages */
+    font-weight: bold; /* Bold font for emphasis */
+    margin-top: 10px; /* Space above the message */
+}

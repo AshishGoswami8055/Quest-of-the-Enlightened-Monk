@@ -1,0 +1,64 @@
+-- Create the `user` table in the `monkgame` database
+CREATE TABLE `monkgame`.`user` (
+    -- Unique identifier for each user, automatically incremented
+    `id` INT(255) NOT NULL AUTO_INCREMENT, 
+    
+    -- User's name, cannot be NULL
+    `name` VARCHAR(255) NOT NULL, 
+    
+    -- User's character name, stored as an integer (likely a reference to a character ID)
+    `character_name` INT(255) NOT NULL, 
+    
+    -- Level 1 energy points
+    `level1Energies` INT(255) NOT NULL, 
+    
+    -- Level 1 health points
+    `level1Health` INT(255) NOT NULL, 
+    
+    -- Level 1 time in minutes
+    `level1Min` INT(255) NOT NULL, 
+    
+    -- Level 1 time in seconds
+    `level1Sec` INT(255) NOT NULL, 
+    
+    -- Level 1 score
+    `level1Score` INT(255) NOT NULL, 
+    
+    -- Level 2 energy points
+    `level2Energies` INT(255) NOT NULL, 
+    
+    -- Level 2 health points
+    `level2Health` INT(255) NOT NULL, 
+    
+    -- Level 2 time in minutes
+    `level2Min` INT(255) NOT NULL, 
+    
+    -- Level 2 time in seconds
+    `level2Sec` INT(255) NOT NULL, 
+    
+    -- Level 2 score
+    `level2Score` INT(255) NOT NULL, 
+    
+    -- Level 3 energy points
+    `level3Energies` INT(255) NOT NULL, 
+    
+    -- Level 3 health points
+    `level3Health` INT(255) NOT NULL, 
+    
+    -- Level 3 time in minutes
+    `level3Min` INT(255) NOT NULL, 
+    
+    -- Level 3 time in seconds
+    `level3Sec` INT(255) NOT NULL, 
+    
+    -- Level 3 score
+    `level3Score` INT(255) NOT NULL, 
+    
+    -- Timestamp for the date of entry, cannot be NULL
+    `date` TIMESTAMP NOT NULL, 
+    
+    -- Set the primary key for the table
+    PRIMARY KEY (`id`)
+) 
+-- Use InnoDB storage engine for the table
+ENGINE = InnoDB;

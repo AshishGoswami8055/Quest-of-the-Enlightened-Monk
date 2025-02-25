@@ -1,0 +1,888 @@
+/* Reset default margin and padding, and set box-sizing to border-box for consistent sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Includes padding and border in element's total width and height */
+}
+
+/* Body styles */
+body {
+  font-family: "Poppins", sans-serif; /* Set font family for the entire document */
+  background: rgb(230, 149, 84); /* Set a default background color */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Apply background animation for the weather class */
+body.weather {
+  animation: back_ground 70s linear infinite alternate; /* Infinite background color transition */
+}
+
+/* Keyframes for background animation */
+@keyframes back_ground {
+  0% {
+    background-color: rgb(230, 149, 84); /* Start color */
+  }
+  50% {
+    background-color: skyblue; /* Midway color */
+  }
+  70% {
+    background-color: rgb(25, 25, 25); /* Dark color */
+  }
+  100% {
+    background-color: #000925; /* End color */
+  }
+}
+
+/* Control panel positioning */
+.control-panel {
+  position: fixed; /* Fix the control panel in place */
+  top: 10px; /* Position from the top */
+  left: 20px; /* Position from the left */
+  z-index: 999; /* Ensure it is above other elements */
+}
+
+/* Control buttons layout */
+.control-btns {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  gap: 20px; /* Space between buttons */
+}
+
+/* Styles for score and health display elements */
+.score,
+.Health,
+.goldenEnergies,
+.level-text,
+#stopwatch {
+  color: white; /* Set text color to white */
+  font-size: 25px; /* Set font size */
+  font-weight: 800; /* Set font weight to bold */
+}
+
+/* Ground styles */
+.ground {
+  position: fixed; /* Fix the ground at the bottom */
+  bottom: 0; /* Position at the bottom of the viewport */
+  left: 0; /* Align to the left */
+  background-color: rgb(62, 26, 0); /* Ground color */
+  width: 100vw; /* Full viewport width */
+  height: 9vh; /* Fixed height relative to viewport height */
+}
+
+/* Add a green strip on top of the ground */
+.ground::after {
+  content: ""; /* Create a pseudo-element */
+  position: absolute; /* Position it relative to the ground */
+  top: 0; /* Align to the top of the ground */
+  left: 0; /* Align to the left of the ground */
+  background-color: green; /* Set color */
+  width: inherit; /* Match the width of the ground */
+  height: 2.5vh; /* Fixed height */
+}
+
+/* Tree styles */
+.trees {
+  position: absolute; /* Position absolutely within parent */
+  bottom: 100%; /* Align to the bottom of the viewport */
+  left: 0; /* Align to the left */
+  display: flex; /* Use flexbox layout */
+  z-index: -11; /* Send behind other elements */
+}
+
+/* Specific tree style adjustment */
+.densetree {
+  transform: translateY(30px) !important; /* Move tree down slightly */
+}
+
+/* Object positioning */
+.objects {
+  position: absolute; /* Position absolutely within parent */
+  top: -75px; /* Position above the viewport */
+  left: 30%; /* Align to 30% from the left */
+  display: flex; /* Use flexbox layout */
+  gap: 350px; /* Space between objects */
+  z-index: 9; /* Position above the ground */
+}
+
+/* Positioning for specific elements */
+.chopped-tree-energy,
+.chopped-tree-first-aid {
+  position: relative; /* Position relative for child positioning */
+}
+
+/* Positioning for energy and first aid items */
+.t-energy,
+.t-first-aid {
+  position: absolute; /* Position absolutely within parent */
+  top: -35px; /* Move up from the parent */
+  left: 62px; /* Align to the left */
+}
+
+/* Ghost image styles */
+.ghost img {
+  /* animation: ghostMoving 0.8s linear infinite alternate; */ /* Commented out animation */
+  opacity: 0; /* Start invisible */
+}
+
+/* Active ghost image styles */
+.ghost img.active {
+  opacity: 1; /* Make visible when active */
+  animation: ghostMoving 1s linear infinite alternate; /* Add movement animation */
+}
+
+/* Keyframes for ghost movement */
+@keyframes ghostMoving {
+  0% {
+    transform: translate(200px, -83px); /* Start position */
+  }
+  100% {
+    transform: translate(1px, -150px); /* End position */
+  }
+}
+
+/* Clouds container styles */
+.clouds {
+  display: flex; /* Use flexbox layout */
+}
+
+/* Adjust positioning for odd cloud images */
+.clouds img:nth-child(odd) {
+  padding-top: 150px; /* Add space above odd clouds */
+}
+
+/* General cloud image styles */
+.clouds img {
+  animation: cloud 19s linear infinite; /* Infinite cloud movement */
+  z-index: -1; /* Send behind other elements */
+}
+
+/* Keyframes for cloud animation */
+@keyframes cloud {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+  }
+  100% {
+    transform: translateX(-100%); /* End off-screen to the left */
+  }
+}
+ /* Styles for the wolf character */
+.wolf {
+  z-index: 9; /* Ensure the wolf is layered above other elements */
+  transition: all 0.2s linear; /* Smooth transition for properties */
+  animation: wolf 2.5s alternate infinite; /* Animation for wolf movement */
+}
+
+/* Keyframes for the wolf's movement animation */
+@keyframes wolf {
+  0% {
+      transform: translate(800px, -45px); /* Start position off-screen */
+  }
+  100% {
+      transform: translate(0, -45px); /* End position on-screen */
+  }
+}
+
+/* Styles for the spike object */
+.spike {
+  transform: translateY(8%); /* Slight downward offset */
+  animation: upDown 0.6s linear infinite alternate; /* Up and down animation */
+}
+
+/* Initial position of the snowman characters */
+.snowman1, .snowman2, .snowman3, .snowman5 {
+  transform: translateY(-175px); /* Position above the normal flow */
+}
+
+/* Initial position of the black rock */
+.black_rock {
+  transform: translateY(-145px); /* Position above the normal flow */
+}
+
+/* Styles for snowman answer pop-ups */
+.snowman1_ans, .snowman2_ans, .snowman3_ans, .snowman4_ans {
+  position: absolute; /* Positioning to place it exactly */
+  top: 10%; /* Offset from the top */
+  left: 50%; /* Centered horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center the element */
+  background-color: white; /* White background */
+  padding: 20px 80px; /* Spacing inside the box */
+  border: 3px solid black; /* Black border */
+  border-radius: 20px; /* Rounded corners */
+  visibility: hidden; /* Initially hidden */
+}
+
+/* Final snowman answer box */
+.snowman_final {
+  visibility: hidden; /* Initially hidden */
+}
+
+/* Keyframes for up and down animation */
+@keyframes upDown {
+  0% {
+      transform: translateY(5%); /* Start position */
+  }
+  100% {
+      transform: translateY(20%); /* End position */
+  }
+}
+
+/* Styles for the bear character */
+.bear {
+  z-index: 9; /* Ensure the bear is layered above other elements */
+  transform: translateY(0px); /* Initial position */
+  animation: bear 2.5s alternate infinite; /* Animation for bear movement */
+}
+
+/* Keyframes for the bear's movement animation */
+@keyframes bear {
+  0% {
+      transform: translateX(500px); /* Start position off-screen */
+  }
+  100% {
+      transform: translateX(0); /* End position on-screen */
+  }
+}
+
+/* Horizontal spacing for elements */
+.space {
+  margin-left: 350px; /* Space from the left */
+}
+
+/* Styles for first aid kits */
+.first-aid {
+  transform: translateY(8%); /* Slight downward offset */
+}
+
+/* Styles for the river object */
+.river {
+  z-index: 9; /* Ensure the river is layered above other elements */
+  transform: translateY(15.5%); /* Position downward */
+}
+
+/* Initial position of hermit characters */
+.hermit, .hermit1, .hermit2 {
+  transform: translateY(-41%); /* Position above the normal flow */
+}
+
+/* Flexbox display utility */
+.d-flex {
+  display: flex; /* Enable flexbox layout */
+}
+
+/* Styles for sandstorm effects */
+.sand_storm {
+  transform: translateY(-60%); /* Upward offset for visual effect */
+  transition: transform 0.5s ease; /* Smooth transition for movement */
+  /* Uncomment below for a sandstorm animation */
+  /* animation: sandstorm 5s linear infinite forwards; */
+}
+
+/* Keyframes for sandstorm animation */
+@keyframes sandstorm {
+  0% {
+      transform: scale(1); /* Start with normal size */
+      transform: translateX(100px); /* Initial horizontal position */
+  }
+  100% {
+      transform: scale(2); /* End at double size */
+      transform: translateX(-600px); /* End off-screen */
+  }
+}
+
+/* Background styles for rain effect */
+body.rain {
+  background: url("../images/rain.gif"); /* Rain animation */
+  background-size: contain; /* Ensure background fits */
+  background-repeat: repeat; /* Repeat background */
+}
+
+/* Background styles for thunderstorm effect */
+body.thunderstorm {
+  background: url("../images/thunder.gif"); /* Thunder animation */
+  background-size: contain; /* Ensure background fits */
+  background-repeat: no-repeat; /* Do not repeat background */
+  background-position: center; /* Center the background */
+}
+
+/* Styles for the game canvas */
+#gameCanvas {
+  position: absolute; /* Positioning to overlay the game */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  z-index: 10; /* Layer above other elements */
+}
+
+/* Styles for the player character */
+#player {
+  position: absolute; /* Positioning to overlay the player */
+  bottom: 8%; /* Offset from the bottom */
+  left: 10%; /* Offset from the left */
+  z-index: 10; /* Ensure the player is on top of other elements */
+}
+
+/* Styles for player character image */
+#player img {
+  width: 80px; /* Set width */
+  height: auto; /* Maintain aspect ratio */
+  display: inline-block; /* Inline block for spacing */
+}
+
+/* Styles for the shield object */
+.shield {
+  position: absolute; /* Positioning to overlay the shield */
+  top: -50%; /* Position above the player */
+  left: -75%; /* Offset from the left */
+}
+
+/* Styles for showing elements */
+.show {
+  visibility: visible !important; /* Override visibility to show */
+}
+
+/* Styles for shield image */
+.shield img {
+  width: 200px !important; /* Set width */
+  height: 200px !important; /* Set height */
+  visibility: hidden; /* Initially hidden */
+}
+
+/* Fade-out transition */
+.fade-out {
+  transition: opacity 0.3s ease-out; /* Smooth fade-out transition */
+  opacity: 0; /* Start invisible */
+}
+
+/* Styles for objects with images */
+.objects img {
+  display: inline-block; /* Inline block for spacing */
+}
+
+/* CSS for Jump Animation */
+#player img {
+  position: relative; /* Allow position adjustments */
+  bottom: 0; /* Initial position */
+  transition: bottom 0.3s ease; /* Smooth transition for vertical movement */
+}
+
+/* Jump animation for player and shield images */
+#player img.jump,
+.shield img.jump {
+  animation: jump-animation 1s ease; /* Apply jump animation */
+}
+
+/* Keyframes for jump animation */
+@keyframes jump-animation {
+  0% {
+      transform: translateY(0); /* Start at the initial position */
+  }
+  50% {
+      transform: translateY(-300px); /* Mid-jump position */
+  } /* Adjust the jump height as needed */
+  100% {
+      transform: translateY(0); /* Return to initial position */
+  }
+}
+
+  
+/* Fade out effect for elements */
+.fade-out {
+  transition: opacity 1s ease; /* Smooth transition for opacity changes */
+  opacity: 0; /* Fully transparent */
+}
+
+/* Styles for pause menu and game form */
+.pause_game,
+.game_form {
+  width: 100%; /* Full width */
+  height: 100vh; /* Full viewport height */
+  position: relative; /* Position relative to parent */
+  z-index: 9; /* Layering above other elements */
+  display: block; /* Display as a block element */
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center justify items */
+  /* display: none; */ /* Uncomment to hide by default */
+  background-color: #00000056; /* Semi-transparent black background */
+  backdrop-filter: blur(4px); /* Blur effect for background */
+}
+
+/* Styles for the forms inside game form and pause menu */
+.game_form form, .pause_game form {
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center transform */
+  display: flex; /* Flexbox for layout */
+  flex-direction: column; /* Stack elements vertically */
+  gap: 20px; /* Space between elements */
+}
+
+/* Input fields in the game form */
+.game_form form input {
+  padding: 20px 30px; /* Inner padding */
+  border: 2px solid black; /* Black border */
+  border-radius: 17px; /* Rounded corners */
+  font-size: 20px; /* Font size */
+  margin-top: 75px; /* Top margin */
+}
+
+/* Labels in the form */
+.game_form form label {
+  transform: translateX(150px); /* Move label to the right */
+}
+
+/* Image position in forms */
+.pause_game .form_img,
+.game_form .form_img {
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center transform */
+}
+
+/* General image class for form images */
+.form_img {
+  z-index: -1; /* Behind other elements */
+}
+
+/* Text styles for pause and form messages */
+.pause-text,
+.form-text {
+  position: absolute; /* Absolute positioning */
+  top: 13%; /* Position from top */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center transform */
+  font-size: 40px; /* Font size */
+  color: white; /* White text color */
+}
+
+/* Animation adjustment for a character (golem) */
+.golem {
+  transform: translateY(-77px); /* Move up */
+}
+
+/* Clickable elements with pointer cursor */
+.pause-close, #abilities_text {
+  cursor: pointer; /* Change cursor to pointer */
+  text-align: center; /* Center align text */
+}
+
+/* Styles for abilities text */
+#abilities_text {
+  font-size: 20px; /* Font size */
+  width: 450px; /* Fixed width */
+  top: 100%; /* Position at bottom */
+  color: #4e2700; /* Dark color */
+  margin: 10px 0; /* Vertical margin */
+}
+
+/* User text styles */
+.user-text {
+  position: absolute; /* Absolute positioning */
+  top: 42%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center transform */
+  font-size: 40px; /* Font size */
+  color: #b66104; /* Color for user text */
+  text-align: center; /* Center align text */
+}
+
+/* Styles for anchor links */
+a {
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Display as block for better spacing */
+}
+
+/* Indicator styles for specific game notifications */
+.indicator {
+  position: absolute; /* Absolute positioning */
+  top: 10px; /* Position from top */
+  right: 10px; /* Position from right */
+  width: 20px; /* Fixed width */
+  height: 20px; /* Fixed height */
+  background-color: red; /* Red background color */
+  border-radius: 50%; /* Circle shape */
+  display: none; /* Hidden by default */
+  z-index: 1000; /* On top of other elements */
+}
+
+/* Animal indicator styles */
+.animal_indicator {
+  position: absolute; /* Absolute positioning */
+  top: 5%; /* Position from top */
+  left: 45%; /* Center horizontally */
+  color: red; /* Red text color */
+  font-size: 35px; /* Font size */
+  display: none; /* Hidden by default */
+  transition: all 0.3s linear; /* Smooth transition for all properties */
+}
+
+/* Golden energies container styles */
+.goldenEnergies {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center align items */
+}
+
+/* Game over screen styles */
+.game_over {
+  visibility: hidden; /* Hidden by default */
+}
+.game_over,
+.notification {
+  position: absolute; /* Absolute positioning */
+  top: 10%; /* Position from top */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center transform */
+  font-size: 30px; /* Font size */
+  color: red; /* Red text color for game over */
+  text-align: center; /* Center align text */
+}
+
+/* Notification text color */
+.notification {
+  color: white; /* White text color */
+}
+
+/* Memory game styles */
+
+/* Import custom font */
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+
+/* Reset styles for unordered list */
+ul {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  list-style: none; /* Remove bullet points */
+}
+
+/* Container styles for memory game */
+.container,
+.container1,
+.container2 {
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  max-width: 550px; /* Maximum width */
+  width: 90%; /* Responsive width */
+  margin: auto; /* Center margin */
+  transform: translate(-50%, -50%); /* Center transform */
+  visibility: hidden; /* Hidden by default */
+  z-index: 999; /* Layering above other elements */
+}
+
+/* Heading styles for containers */
+.container h2,
+.container1 h2,
+.container2 h2 {
+  text-align: center; /* Center align text */
+  color: white; /* White text color */
+  font-size: 35px; /* Font size */
+  margin-bottom: 20px; /* Margin below heading */
+}
+
+/* Board styles for memory game */
+.board,
+.board1,
+.board2 {
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  grid-gap: 10px; /* Gap between grid items */
+}
+
+/* Responsive board styles for wider screens */
+@media screen and (min-width: 480px) {
+  .board,
+  .board1,
+  .board2 {
+      grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+      grid-gap: 15px; /* Increased gap between items */
+  }
+}
+
+/* Card styles for memory game */
+.card {
+  position: relative; /* Relative positioning */
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); /* Shadow effect */
+  padding-bottom: 100%; /* Square aspect ratio */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  color: #ccc; /* Default text color */
+  font-size: 12.5vw; /* Responsive font size */
+  background: #fff; /* White background */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center justify items */
+  background-size: contain; /* Contain background image */
+  background-position: center; /* Center background image */
+  background-repeat: no-repeat; /* No repeat for background image */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; /* Shadow effect */
+}
+
+/* Styles for matched cards */
+.card.is-match {
+  background-color: #99ce2a; /* Green background for match */
+  animation: match 0.5s ease-in-out; /* Animation for match effect */
+  cursor: default; /* Disable cursor change */
+}
+
+/* Styles for flipped cards */
+.card.is-flipped {
+  /* Temporary style for flipped card */
+  background-color: #fff; /* White background for flipped card */
+}
+
+/* Responsive card styles for wider screens */
+@media screen and (min-width: 800px) {
+  .card {
+      font-size: 100px; /* Larger font size */
+  }
+}
+
+/* Keyframes for match animation */
+@keyframes match {
+  0% {
+      transform: scale(1); /* Start scale */
+  }
+  40% {
+      transform: scale(1.08); /* Scale up */
+  }
+  60% {
+      transform: scale(1); /* Scale back to original */
+  }
+  80% {
+      transform: scale(1.05); /* Slight scale up */
+  }
+  100% {
+      transform: scale(1); /* End scale */
+  }
+}
+
+/* quiz game */
+
+/* Main and scoreboard containers styling */
+.quiz-container,
+.scoreboard-container {
+  position: absolute; /* Position the containers absolutely */
+  top: 0; /* Align to the top */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, 10%); /* Adjust position to center and add margin from top */
+  background: #fff; /* White background for visibility */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  width: 90%; /* Full width relative to parent */
+  max-width: 600px; /* Maximum width constraint */
+  padding: 30px; /* Internal spacing */
+  text-align: center; /* Center text within the containers */
+  margin-bottom: 30px; /* Bottom margin for spacing between elements */
+  z-index: 99999; /* Ensure it appears above other content */
+}
+
+/* Header section with question number, timer, and score */
+header {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out children elements */
+  align-items: center; /* Center vertically */
+  padding-bottom: 20px; /* Bottom padding */
+  border-bottom: 2px solid #eee; /* Light bottom border */
+}
+
+/* Styling for question number, timer, and score elements */
+#question-number,
+#timer,
+#score {
+  font-size: 1.2em; /* Increase font size for readability */
+  color: #777; /* Grey color for secondary information */
+}
+
+/* Timer element with color transition */
+#timer {
+  color: #e74c3c; /* Initial color for timer (red) */
+  transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+}
+
+/* Progress bar container */
+.progress-container {
+  width: 100%; /* Full width */
+  background: #f2f2f2; /* Light grey background for progress bar */
+  border-radius: 15px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow for rounded edges */
+  margin: 30px 0; /* Vertical margin */
+}
+
+/* Progress bar with width transition */
+.progress-bar {
+  width: 0; /* Initial width (hidden) */
+  height: 10px; /* Height of the progress bar */
+  background: #0acf83; /* Color of the progress bar (green) */
+  transition: width 0.5s ease-in-out; /* Smooth width transition */
+}
+
+/* Main section with question text */
+.main_section {
+  margin: 30px 0; /* Vertical margin */
+}
+
+/* Question text styling */
+h2 {
+  font-size: 2em; /* Large font size for question */
+  color: #333; /* Dark grey color for better contrast */
+  margin-bottom: 20px; /* Margin below the heading */
+}
+
+/* Options container */
+.options {
+  display: flex; /* Flexbox layout for options */
+  flex-direction: column; /* Stack options vertically */
+  text-align: left; /* Align text to the left */
+  margin-top: 20px; /* Margin above the options */
+}
+
+/* Styling for answer options */
+label {
+  background: #f8f9fa; /* Light background for options */
+  border-radius: 12px; /* Rounded corners for options */
+  padding: 15px; /* Internal padding */
+  margin: 10px 0; /* Vertical margin between options */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.6s, box-shadow 0.3s; /* Smooth transition effects */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth effect */
+}
+
+/* Radio input styling */
+input[type="radio"] {
+  margin-right: 12px; /* Space between radio button and label */
+}
+
+/* Footer section with next button */
+footer {
+  display: flex; /* Flexbox layout for footer */
+  justify-content: center; /* Center content horizontally */
+}
+
+/* Next and restart buttons styling */
+#next-button,
+#restart-button {
+  background: #0acf83; /* Green background for buttons */
+  color: #fff; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 12px; /* Rounded corners for buttons */
+  padding: 15px 30px; /* Internal padding */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1.2em; /* Increase font size */
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Smooth transition effects */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Shadow for depth effect */
+}
+
+/* Hover effect for options */
+.options label:hover {
+  background-color: #e0e0e0; /* Change background color on hover */
+  transform: translateY(-3px); /* Slight upward movement on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Hover effect for progress bar */
+.progress-bar:hover {
+  background-color: #09ca73; /* Brighter color on hover */
+}
+
+/* Hover effect for next and restart buttons */
+#next-button:hover,
+#restart-button:hover {
+  background-color: #09ca73; /* Brighter color on hover */
+  transform: scale(1.05); /* Slightly larger scale on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Scoreboard container and table styling */
+.scoreboard-container table {
+  width: 100%; /* Full width for scoreboard */
+  border-collapse: collapse; /* Collapse borders for a cleaner look */
+}
+
+/* Scoreboard table header and cell styling */
+.scoreboard-container th,
+.scoreboard-container td {
+  border: 1px solid #ddd; /* Light grey border for cells */
+  padding: 12px; /* Internal padding for cells */
+}
+
+.scoreboard-container th {
+  background-color: #f2f2f2; /* Light grey background for header cells */
+  color: #333; /* Dark grey text for header */
+}
+
+/* Question text and options animation transitions */
+#question-text {
+  transition: opacity 0.4s ease-in-out; /* Smooth opacity transition for question text */
+}
+
+.options label:hover {
+  opacity: 0.9; /* Slightly decrease opacity on hover */
+}
+
+/* Responsive styles for various screen sizes */
+@media screen and (max-width: 768px) {
+  .quiz-container,
+  .scoreboard-container {
+    width: 90%; /* Adjust width for smaller screens */
+    max-width: 90%; /* Ensure maximum width doesn't exceed screen size */
+  }
+
+  h2 {
+    font-size: 1.8em; /* Adjust font size for better readability */
+  }
+
+  #next-button,
+  #restart-button {
+    padding: 12px 24px; /* Adjust button padding for smaller screens */
+    font-size: 1em; /* Adjust button font size */
+  }
+
+  .options label {
+    padding: 12px; /* Smaller padding for options */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .quiz-container,
+  .scoreboard-container {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  h2 {
+    font-size: 1.6em; /* Further adjust font size for readability */
+  }
+
+  #next-button,
+  #restart-button {
+    padding: 10px 20px; /* Adjust button padding for smaller screens */
+    font-size: 0.9em; /* Adjust button font size */
+  }
+
+  .options label {
+    padding: 12px; /* Smaller padding for options */
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .quiz-container,
+  .scoreboard-container {
+    padding: 15px; /* Adjust padding for very small screens */
+  }
+
+  h2 {
+    font-size: 1.4em; /* Further adjust font size for readability */
+  }
+
+  #next-button,
+  #restart-button {
+    padding: 8px 16px; /* Adjust button padding for very small screens */
+    font-size: 0.8em; /* Adjust button font size */
+  }
+
+  .options label {
+    padding: 10px; /* Smaller padding for options */
+  }
+}

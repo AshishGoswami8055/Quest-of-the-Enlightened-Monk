@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design settings for mobile devices -->
+    <title>Meditation</title> <!-- Title of the webpage displayed in the browser tab -->
+    <link rel="stylesheet" href="css/meditation.css"> <!-- Link to external CSS stylesheet for styling the meditation page -->
+</head>
+<body class="meditation-page"> <!-- Body element with a class for specific styling -->
+    <div class="container"> <!-- Container div to center content and apply styling -->
+        <h2>Meditation Time!</h2> <!-- Subheading for the meditation section -->
+        <p>You have entered a state of meditation. During this meditation, listen closely and count the number of bells you hear. You will be asked about this at the end-of-level quiz.</p> <!-- Instructional text for the user -->
+        
+        <!-- Video element to play the meditation audio/visual -->
+        <video id="meditation-video" controls>
+            <source src="audio/meditation.mp4" type="video/mp4"> <!-- Source file for the video, specifying the type -->
+            Your browser does not support the video tag. <!-- Fallback message for unsupported browsers -->
+        </video>
+    </div>
+    
+    <script src="meditation.js"></script> <!-- Link to external JavaScript file for functionality -->
+</body>
+</html>

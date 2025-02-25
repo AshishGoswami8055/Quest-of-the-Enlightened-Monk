@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monk Level :- 3</title>
+  <link rel="stylesheet" href="css/level_3.css">
+  <link rel="shortcut icon" href="images/snowman.png" type="image/x-icon">
+</head>
+
+<body>
+  <!-- Control Buttons  -->
+  <div class="control-panel">
+    <div class="control-btns">
+      <a href="#" onclick="play_game()"><img src="images/play.png" alt=""></a>
+      <a href="#" onclick="pause_game()"><img src="images/pause.png" alt=""></a>
+      <a href="game_rules.html" target="_blank"><img src="images/rules.png" alt=""></a>
+    </div>
+    <div class="level-text">Level 3</div>
+    <div class="Health">Health : 100</div>
+    <div class="score">Score : 0</div>
+    <div id="stopwatch">00 : 00 : 00</div>
+    <div class="goldenEnergies"><img src="images/golden_energies.png" width="30px" alt="">:<span></span></div>
+  </div>
+
+  <!-- pause -->
+  <div class="pause_game">
+    <form>
+      <img src="images/pause form.png" class="form_img" width="970px" alt="">
+      <h2>Level :- 3</h2>
+      <h2 class="pause_health">Health :- 100</h2>
+      <a href="#" onclick="toggle_music()"><img src="images/musicbtn.png" alt=""></a>
+      <a class="pause-close" onclick="play_game()"><img src="images/playbtn.png" alt=""></a>
+    </form>
+  </div>
+
+  <!-- Game over  -->
+  <h2 class="game_over">Game Over!!! Auto Restarting</h2>
+
+  <!-- Notification -->
+  <h3 class="notification"></h3>
+
+
+  <!-- snow man  -->
+  <div class="snowman_answers">
+    <h2 class="game_over">Game Over!!! Auto Restarting</h2>
+    <h3 class="snowman1_ans">The Gift of Understanding
+      In a small village, a young woman named Maya felt lost despite her wealth and beauty. Yearning for happiness, she sought out the wise monk Gautama Buddha.
+      Upon meeting him, she poured out her heart, expressing her struggles with unfulfilled desires. The Buddha listened and said, “Maya, suffering 
+      arises from attachment to desires. True happiness comes from understanding and letting go.” He offered the analogy of holding a hot coal—one must choose 
+      to release it to be free from pain. Inspired, Maya practiced mindfulness, learning to appreciate the present moment rather than chasing fleeting desires.
+      Her heart gradually lightened, and she found joy in simple things. Through her journey, she realized that true happiness lies in understanding, acceptance, 
+      and the joy of simply being.</h3>
+    <h3 class="snowman2_ans">Once, a young monk named Ananda approached Buddha, troubled by the suffering he witnessed in the world. Buddha led him to a forest and 
+      pointed to a withering leaf. "Just as this leaf fades, so do all things," he explained. "Suffering arises from attachment to what is impermanent."
+      Ananda realized that while suffering is part of life, letting go can bring peace. He asked, "How can we find peace amidst suffering?" Buddha smiled and replied, 
+      "By embracing the present moment and understanding that all things are transient, we can find liberation." Enlightened, Ananda returned to share this wisdom, ready 
+      to guide others toward inner peace.</h3>
+    <h3 class="snowman3_ans">
+      One day, Buddha and his disciples were walking through a village when they encountered a woman crying by the roadside. She was mourning the loss of her only child.
+      Compassionate, Buddha approached her and said, “I can help you, but first, bring me a mustard seed from a household that has never known sorrow.” The woman searched 
+      the village but returned empty-handed, realizing that every home had experienced loss. Buddha then spoke gently, “Suffering is universal, but through understanding 
+      and connection, we can find comfort. Embrace your pain, for it is part of life’s journey.”
+      The woman wiped her tears and smiled through her grief, feeling a sense of unity with others. She learned that even in sorrow, there is strength in shared humanity.</h3>
+    <h3 class="snowman4_ans">The Truth of the Path that Leads to the End of Suffering</h3>
+  </div>
+  <div class="snowman_final">
+    <div class="quiz-container">
+      <header>
+        <span id="question-number">1/10</span>
+        <span id="timer">30</span>
+        <span id="score">Score: 0</span>
+      </header>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <main class="main_section">
+        <h2 id="question-text">How does Kendrick react to moving objects?</h2>
+        <div class="options">
+          <label>
+            <input type="radio" name="answer" value="Tracks with eyes">
+            <span>Tracks with eyes</span>
+          </label>
+          <label>
+            <input type="radio" name="answer" value="Tries to follow">
+            <span>Tries to follow</span>
+          </label>
+          <label>
+            <input type="radio" name="answer" value="Gets excited">
+            <span>Gets excited</span>
+          </label>
+          <label>
+            <input type="radio" name="answer" value="Different reaction">
+            <span>Different reaction</span>
+          </label>
+        </div>
+      </main>
+      <footer>
+        <button id="next-button">Continue</button>
+      </footer>
+    </div>
+    <div class="scoreboard-container" id="scoreboard-container" style="display: none;">
+      <h2 class="score_display">Scoreboard</h2>
+      <table id="scoreboard">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Your Answer</th>
+            <th>Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <button id="restart-button">Continue</button>
+    </div>
+  </div>
+
+
+
+  <!-- Environment  -->
+  <main>
+    <div class="clouds">
+      <img src="images/cloud.png" width="350px" alt="">
+      <img src="images/cloud.png" width="350px" alt="">
+      <img src="images/cloud.png" width="350px" alt="">
+      <img src="images/cloud.png" width="350px" alt="">
+      <img src="images/cloud.png" width="350px" alt="">
+      <img src="images/cloud.png" width="350px" alt="">
+      <img src="images/cloud.png" width="350px" alt="">
+      <img src="images/cloud.png" width="350px" alt="">
+    </div>
+
+    <div class="ground">
+
+      <div class="trees">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+        <img src="images/tree.png" class="tree" alt="">
+        <img src="images/densetrees.png" class="densetree" alt="">
+      </div>
+
+      <div class="objects">
+
+        <div class="snowman1"><img src="images/snowman.png" width="400px" alt=""></div>
+
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="first-aid">
+          <img src="images/firstaid.png" width="70px" alt="">
+        </div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+
+        <!-- SAND STORM -->
+        <div class="sand_storm">
+          <img src="images/storm.gif" alt="">
+        </div>
+
+        <div class="space">
+          <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        </div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="hermit1"><img src="images/hermit.png" width="180px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="black_rock"><img src="images/blackrock.png" width="350px" alt=""></div>
+        <div class="snowman2"><img src="images/snowman.png" width="400px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="first-aid">
+          <img src="images/firstaid.png" width="70px" alt="">
+        </div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="snowman3"><img src="images/snowman.png" width="400px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="hermit2"><img src="images/hermit.png" width="180px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="first-aid">
+          <img src="images/firstaid.png" width="70px" alt="">
+        </div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="ghost">
+          <img src="images/spirits.png" width="120px" alt="spirit">
+        </div>
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="snowman4"><img src="images/snowman.png" width="400px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="hermit3"><img src="images/hermit.png" width="180px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="golem">
+          <img src="images/Golems.png" width="180px" alt="">
+        </div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="first-aid">
+          <img src="images/firstaid.png" width="70px" alt="">
+        </div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="black_rock"><img src="images/blackrock.png" width="350px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="black_rock"><img src="images/blackrock.png" width="350px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="hermit"><img src="images/hermit.png" width="180px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="bear"><img src="images/bear.gif" width="150px" alt=""></div>
+        <div class="energy"><img src="images/golden_energies.png" width="30px" alt=""></div>
+        <div class="river"><img src="images/new_river.png" width="200px" alt=""></div>
+        <div class="spike"><img src="images/spikes.png" width="50px" alt=""></div>
+        <div class="chopped-tree"><img src="images/choppedtree.png" width="150px" alt=""></div>
+        <div class="wolf"><img src="images/wolf.gif" width="200px" alt=""></div>
+        <div class="snowman5"><img src="images/snowman.png" width="400px" alt=""></div>
+
+      </div>
+    </div>
+
+
+    <!-- Player Character -->
+    <div id="player">
+      <!-- <img src="images/zen/Idle.gif"> -->
+      <img src="" alt="">
+      <div class="shield">
+        <img src="images/energy shield.gif" alt="shield">
+      </div>
+    </div>
+    <div class="indicator"></div>
+    <h4 class="animal_indicator">Animal Ahead ⚠</h4>
+    <h2 class="game_over">Game Over!!! Auto Restarting</h2>
+  </main>
+
+  <!-- memory game  -->
+
+  <div class="container">
+    <h2>Memory Game :-</h2>
+    <ul class="board"></ul>
+  </div>
+  <div class="container1">
+    <h2>Memory Game :-</h2>
+    <ul class="board1"></ul>
+  </div>
+  <div class="container2">
+    <h2>Memory Game :-</h2>
+    <ul class="board2"></ul>
+  </div>
+  <div class="container3">
+    <h2>Memory Game :-</h2>
+    <ul class="board3"></ul>
+  </div>
+
+
+
+  <script src="js/level3.js"></script>
+
+  <script>
+    let audio = new Audio("images/interstaller.mp3");
+    isPlayable = false;
+  </script>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+
+</html>

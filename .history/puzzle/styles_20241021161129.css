@@ -1,0 +1,63 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+/* Title styling */
+h1 {
+    margin-top: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Instructions styling */
+.instructions {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Full image styling */
+.full-image {
+    margin: 20px auto;
+    border: 2px solid #ddd;
+    display: inline-block;
+}
+
+/* Puzzle container grid */
+.puzzle-container {
+    width: 320px;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    margin-top: 20px;
+}
+
+/* Canvas pieces */
+canvas {
+    border: 2px solid #333;
+    cursor: pointer;
+}
+
+/* Empty tile styling */
+.empty-tile {
+    width: 100px;
+    height: 100px;
+    border: 2px solid transparent;
+}
+
+/* Success message styling */
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+}

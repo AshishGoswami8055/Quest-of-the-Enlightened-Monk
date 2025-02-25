@@ -1,0 +1,87 @@
+/* Apply box-sizing to all elements to include padding and border in the element's total width and height */
+* {
+  box-sizing: border-box; /* Use border-box model */
+  /* outline: 1px solid; Uncomment to visualize element boundaries */
+}
+
+/* Styles for the body element */
+body {
+  background: #ffffff; /* Set a solid white background */
+  background: linear-gradient(to bottom, #ffffff 0%, #e1e8ed 100%); /* Create a gradient background from white to light grey */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e1e8ed', GradientType=0 ); /* For older IE support */
+  height: 100%; /* Full height of the viewport */
+  margin: 0; /* Remove default margin */
+  background-repeat: no-repeat; /* Prevent background image from repeating */
+  background-attachment: fixed; /* Keep the background fixed during scrolling */
+}
+
+/* First wrapper styles */
+.wrapper-1 {
+  width: 100%; /* Full width */
+  height: 100vh; /* Full viewport height */
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Stack children vertically */
+}
+
+/* Second wrapper styles */
+.wrapper-2 {
+  padding: 30px; /* Add padding inside the wrapper */
+  text-align: center; /* Center text horizontally */
+}
+
+/* Styles for the main heading */
+h1 {
+  font-family: 'Kaushan Script', cursive; /* Set a custom cursive font */
+  font-size: 4em; /* Font size */
+  letter-spacing: 3px; /* Add spacing between letters */
+  color: #5892FF; /* Set text color to a shade of blue */
+  margin: 0; /* Remove default margin */
+  margin-bottom: 20px; /* Add space below the heading */
+}
+
+/* Styles for paragraph elements within the second wrapper */
+.wrapper-2 p {
+  margin: 0; /* Remove default margin */
+  font-size: 1.3em; /* Set font size */
+  color: #aaa; /* Set text color to light gray */
+  font-family: 'Source Sans Pro', sans-serif; /* Set a custom sans-serif font */
+  letter-spacing: 1px; /* Add spacing between letters */
+}
+
+/* Styles for the "go home" button */
+.go-home {
+  color: #fff; /* Set text color to white */
+  background: #5892FF; /* Set background color to a shade of blue */
+  border: none; /* Remove default border */
+  padding: 10px 50px; /* Add padding for button size */
+  margin: 30px 0; /* Add vertical margin for spacing */
+  border-radius: 30px; /* Round the corners */
+  text-transform: capitalize; /* Capitalize the first letter of each word */
+  box-shadow: 0 10px 16px 1px rgba(174, 199, 251, 1); /* Add a subtle shadow effect */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Responsive styles for small devices */
+@media (min-width: 360px) {
+  h1 {
+      font-size: 4.5em; /* Increase font size on larger screens */
+  }
+  .go-home {
+      margin-bottom: 20px; /* Adjust bottom margin */
+  }
+}
+
+/* Responsive styles for medium devices */
+@media (min-width: 600px) {
+  .content {
+      max-width: 1000px; /* Set a max width for content */
+      margin: 0 auto; /* Center the content */
+  }
+  .wrapper-1 {
+      height: initial; /* Remove fixed height */
+      max-width: 620px; /* Set a max width */
+      margin: 0 auto; /* Center the wrapper */
+      margin-top: 50px; /* Add space above the wrapper */
+      box-shadow: 4px 8px 40px 8px rgba(88, 146, 255, 0.2); /* Add a shadow effect */
+  }
+}
