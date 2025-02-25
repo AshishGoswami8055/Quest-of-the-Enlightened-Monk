@@ -69,4 +69,4 @@ http://localhost/monk%20game%20with%20memory/Admin/index.html
 ## **📜 License**  
 This project is open-source and can be modified as needed.  
 
-Created be Ashishpuri Goswami
+Created by Ashishpuri Goswami
