@@ -3,6 +3,7 @@
 **Quest of the Enlightened Monk** is a **2D platformer adventure game** where players control a mystical monk navigating through a **mystical forest** filled with enemies, obstacles, and treasures. Choose from **four monk types**, each with unique abilities, and embark on a journey toward **spiritual enlightenment**.  
 
 ---
+live preview :- ```https://quest-of-the-enlightened-monk.vercel.app/```
 
 ## **🛠️ Features**  
 
