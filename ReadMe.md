@@ -1,6 +1,4 @@
-Here’s your **README.md** file for **Quest of the Enlightened Monk** with all the required setup instructions:  
 
----
 
 # **🌟 Quest of the Enlightened Monk**  
 
@@ -71,4 +69,4 @@ http://localhost/monk%20game%20with%20memory/Admin/index.html
 ## **📜 License**  
 This project is open-source and can be modified as needed.  
 
-Let me know if you need any adjustments! 🚀🎮
+Created be Ashishpuri Goswami
