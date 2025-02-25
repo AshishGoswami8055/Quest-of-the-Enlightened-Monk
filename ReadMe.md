@@ -1,5 +1,3 @@
-
-
 # **🌟 Quest of the Enlightened Monk**  
 
 **Quest of the Enlightened Monk** is a **2D platformer adventure game** where players control a mystical monk navigating through a **mystical forest** filled with enemies, obstacles, and treasures. Choose from **four monk types**, each with unique abilities, and embark on a journey toward **spiritual enlightenment**.  
@@ -59,6 +57,20 @@ http://localhost/monk%20game%20with%20memory/Admin/index.html
 
 ---
 
+## **🎮 Game Instructions**  
+
+### **🔹 Getting Started**  
+1. Open `index.html` (Level 1 with the **Character Form**).  
+2. Fill the form in `index.html` (**This form is linked to the gender selection of the character, so ensure you go through this step first**).  
+3. Click **Play** and enjoy the game!  
+
+### **🔹 Combat Tip**  
+- **When you move closer to animals, a warning indicator appears.**  
+- If the indicator is **shown**, press the **'V' key** to eliminate the animal.  
+- **Indicators do not appear for spikes**, so avoid them carefully!  
+
+---
+
 ## **🎮 Controls**  
 - **A / D** – Move left / right  
 - **Spacebar** – Jump  
@@ -69,4 +81,9 @@ http://localhost/monk%20game%20with%20memory/Admin/index.html
 ## **📜 License**  
 This project is open-source and can be modified as needed.  
 
-Created by Ashishpuri Goswami
+---
+
+Created by Ashishpuri Goswami.
+
+
+
